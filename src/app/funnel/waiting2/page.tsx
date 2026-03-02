@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/utils/supabase/client'
 import { useClientTranslation } from '@/utils/i18n-client'
+import { ShipmentSummary } from '@/components/ShipmentSummary'
 
 function WaitingContent() {
     const searchParams = useSearchParams()
@@ -51,34 +52,44 @@ function WaitingContent() {
     }, [token, router])
 
     return (
-        <div className="w-full max-w-sm bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100 relative">
-            <div className="bg-[#FFCC00] h-2 w-full"></div>
-            <div className="p-10 text-center space-y-8">
-                {/* DHL Loading Spinner Simulation */}
-                <div className="relative w-24 h-24 mx-auto">
-                    <div className="absolute inset-0 border-4 border-gray-100 rounded-full"></div>
-                    <div className="absolute inset-0 border-8 border-l-[#D40511] border-r-[#D40511] border-t-transparent border-b-transparent rounded-full animate-spin"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-[#D40511] font-black italic tracking-tighter text-sm">DHL</span>
+        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            {/* Left Column: Processing Message */}
+            <div className="lg:col-span-8 bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100 flex flex-col relative">
+                <div className="bg-[#FFCC00] h-2 w-full"></div>
+                <div className="p-10 text-center space-y-8 flex-1 flex flex-col items-center justify-center">
+                    {/* DHL Loading Spinner Simulation */}
+                    <div className="relative w-24 h-24 mx-auto">
+                        <div className="absolute inset-0 border-4 border-gray-100 rounded-full"></div>
+                        <div className="absolute inset-0 border-8 border-l-[#D40511] border-r-[#D40511] border-t-transparent border-b-transparent rounded-full animate-spin"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="text-[#D40511] font-black italic tracking-tighter text-sm">DHL</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">
+                            {t('processing')}{dots}
+                        </h2>
+                        <p className="text-sm text-gray-500 font-medium mt-3 leading-relaxed max-w-xs mx-auto">
+                            {t('auth_verifying')}
+                        </p>
                     </div>
                 </div>
-
-                <div>
-                    <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">
-                        {t('processing')}{dots}
-                    </h2>
-                    <p className="text-sm text-gray-500 font-medium mt-3 leading-relaxed">
-                        {t('auth_verifying')}
-                    </p>
-                </div>
             </div>
+
+            {/* Right Column: Persistent Shipment Summary */}
+            <div className="lg:col-span-4 self-stretch">
+                <ShipmentSummary status="pending" />
+            </div>
+
         </div>
     )
 }
 
 export default function WaitingPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-[#f4f4f4] flex items-center justify-center">Loading...</div>}>
+        <Suspense fallback={<div className="bg-[#f4f4f4] flex items-center justify-center py-20">Loading...</div>}>
             <WaitingContent />
         </Suspense>
     )

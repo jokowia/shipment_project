@@ -8,7 +8,7 @@ export function GlobalHeader() {
     const pathname = usePathname()
 
     // Admin and Funnel have their own specialized headers
-    if (pathname.startsWith('/admin') || pathname.startsWith('/funnel')) {
+    if (pathname.startsWith('/admin') || pathname.startsWith('/funnel') || pathname === '/track') {
         return null
     }
 
@@ -38,13 +38,20 @@ export function GlobalFooter() {
     const pathname = usePathname()
 
     // Hide global elements on the admin portal, login, and funnel routes
-    if (pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/funnel')) {
+    if (pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/funnel') || pathname === '/track') {
         return null
     }
 
     return (
         <footer className="bg-gray-900 text-gray-400 p-6 text-center text-sm mt-auto border-t-4 border-[#FFCC00]">
-            <p>© {new Date().getFullYear()} DHL International GmbH. All rights reserved.</p>
+            <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-4">
+                <p>© {new Date().getFullYear()} DHL International GmbH. All rights reserved.</p>
+                <div className="flex gap-4 sm:gap-6 font-semibold">
+                    <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
+                    <Link href="/privacy" className="hover:text-white transition-colors">Privacy Notice</Link>
+                    <Link href="/fraud" className="hover:text-white transition-colors">Fraud Awareness</Link>
+                </div>
+            </div>
         </footer>
     )
 }

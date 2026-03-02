@@ -7,19 +7,25 @@ A Next.js (App Router) and Supabase project providing a robust, state-driven shi
 1. **Client Verification Funnel**
    - Step-by-step verification process handling logistics constraints.
    - States logically enforced by PostgreSQL backend: `INVITED` ➔ `LINK_CLICKED` ➔ `ADDRESS_CONFIRMED` ➔ `PAYMENT_SUBMITTED` ➔ `GATE_1_APPROVED` ➔ `OTP_SUBMITTED` ➔ `GATE_2_APPROVED` ➔ `REJECTED`.
-   - Secure data collection gates for address and payment payloads.
+   - Premium split-screen layout tracking user progress with dynamic "Shipment Summary" sidebars.
+   - Secure data collection gates for address and payment payloads utilizing dynamic trust indicators.
    - OTP Protection Model for secure, final-stage verification.
 
 2. **Admin Command Center**
    - Real-time client tracking table powered by Supabase Realtime subscriptions.
    - Admin Gate actions: Approve/Reject workflows for Gate 1 (Payment) and Gate 2 (OTP).
-   - Client management: Edit client details, manage state manually, or delete records directly from the dashboard.
-   - Add clients manually or via bulk upload.
-   - Telemetry through database audit logs.
+   - Client management: Edit client details, manage state manually, or delete records directly from the expandable dashboard.
+   - Multi-language support configuration (English, Arabic, French, Spanish, Albanian, Dutch).
 
-3. **Database Architecture & Security**
+3. **External Integrations**
+   - DHL-Branded Email Notification workflows via Resend (SMTP).
+   - Real-time Telegram Bot webhook notifications for monitoring active verification sessions.
+
+4. **Database Architecture & Security**
    - Secure Supabase PostgreSQL schema utilizing Row Level Security (RLS) policies for isolated admin data access.
    - Strict state machine enforcement using PL/pgSQL functions.
+
+> **Note:** For a detailed step-by-step history of this project's development milestones, please read the [Project Overview](PROJECT_OVERVIEW.md).
 
 ## Getting Started
 

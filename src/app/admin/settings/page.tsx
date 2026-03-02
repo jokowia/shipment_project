@@ -4,6 +4,7 @@ import { getLanguage, useTranslation } from '@/utils/i18n'
 import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 import { NotificationCenter } from '@/components/NotificationCenter'
 import { SettingsForm } from './SettingsForm'
+import Image from 'next/image'
 
 export default async function SettingsPage() {
     const lang = await getLanguage()
@@ -37,8 +38,10 @@ export default async function SettingsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex items-center gap-4">
-                            <span className="text-dhl-red font-black text-2xl tracking-tighter">DHL</span>
-                            <h1 className="text-xl font-bold text-gray-900 border-x-2 border-gray-300 px-4 mx-2">
+                            <a href="/admin" className="flex items-center group">
+                                <Image src="/dhllogonobg.svg" alt="DHL Express Logo" width={110} height={30} className="object-contain h-6 sm:h-8 w-auto group-hover:opacity-80 transition-opacity" priority />
+                            </a>
+                            <h1 className="text-xl font-bold text-gray-900 border-l-2 border-red-900/20 pl-4 mx-2">
                                 <a href="/admin" className="hover:underline">Dashboard</a> / Settings
                             </h1>
                             <LanguageSwitcher currentLang={lang} />
