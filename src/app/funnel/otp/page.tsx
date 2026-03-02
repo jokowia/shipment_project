@@ -30,7 +30,7 @@ export default async function OtpPage({ searchParams }: { searchParams: Promise<
                             maxLength={6}
                             pattern="[0-9]*"
                             placeholder="• • • • • •"
-                            className="w-full text-center tracking-[1em] text-3xl rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-4 border outline-none font-mono transition-colors"
+                            className="w-full text-center tracking-[1em] text-3xl rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-4 border outline-none font-mono transition-colors text-black bg-white"
                         />
                     </div>
                     <button type="submit" className="w-full bg-[#D40511] text-white font-black text-lg py-4 rounded hover:bg-red-700 transition-colors shadow-md uppercase">

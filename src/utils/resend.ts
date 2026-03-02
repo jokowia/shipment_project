@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-
+import crypto from 'crypto';
 interface SendEmailParams {
     to: string;
     subject: string;
@@ -36,12 +36,28 @@ export async function sendClientEmail({ to, subject, html }: SendEmailParams) {
             },
         });
 
+        // Simple HTML to Text conversion
+        const textContent = html
+            .replace(/<style[^>]*>[\s\S]*?<\/style>/ig, '')
+            .replace(/<script[^>]*>[\s\S]*?<\/script>/ig, '')
+            .replace(/<\/(p|div|h[1-6]|li|br)>/ig, '\n')
+            .replace(/<[^>]+>/ig, '')
+            .replace(/&nbsp;/ig, ' ')
+            .replace(/&amp;/ig, '&')
+            .replace(/\n\s*\n/g, '\n\n')
+            .trim();
+
         const info = await transporter.sendMail({
             from: fromAddress,
             replyTo: fromAddress,
             to: to,
             subject: subject,
+            text: textContent,
             html: html,
+            headers: {
+                'X-Entity-Ref-ID': crypto.randomUUID(),
+                'List-Unsubscribe': `<mailto:${fromAddress.replace(/.*<(.+)>.*/, '$1')}?subject=unsubscribe>`,
+            }
         });
 
         console.log('Message sent: %s', info.messageId);

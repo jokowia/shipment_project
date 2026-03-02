@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getLanguage, useTranslation } from '@/utils/i18n'
 import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
@@ -16,8 +17,8 @@ export default async function FunnelLayout({ children }: { children: ReactNode }
                 {/* Main Nav Bar (White) */}
                 <div className="bg-white px-6 py-4 flex justify-between items-center border-b border-gray-200">
                     <div className="flex items-center gap-4">
-                        <Link href="/" className="text-3xl font-black italic tracking-wide text-[#d40511]">
-                            DHL EXPRESS
+                        <Link href="/" className="flex items-center">
+                            <Image src="/dhllogonobg.svg" alt="DHL Express Logo" width={140} height={40} className="object-contain h-8 sm:h-10 w-auto" priority />
                         </Link>
                     </div>
                     {/* Optional Right Side (E.g. Help / Language) */}

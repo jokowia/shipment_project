@@ -48,7 +48,7 @@ export async function POST(request: Request) {
                 const { error: transitionError } = await supabase.rpc('transition_client_state', {
                     p_client_id: clientId,
                     p_new_state: newState,
-                    p_actor: 'admin_bot',
+                    p_actor: 'admin',
                     p_ip: 'telegram_api'
                 })
 

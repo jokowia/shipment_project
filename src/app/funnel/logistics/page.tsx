@@ -59,27 +59,27 @@ export default async function LogisticsPage({ searchParams }: { searchParams: Pr
 
                     <div>
                         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">{t('full_name')}</label>
-                        <input type="text" name="name" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors" />
+                        <input type="text" name="name" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors text-black bg-white" />
                     </div>
 
                     <div>
                         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">{t('phone_number')}</label>
-                        <input type="tel" name="phone" required placeholder="+1 (555) 000-0000" className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors" />
+                        <input type="tel" name="phone" required placeholder="+1 (555) 000-0000" className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors text-black bg-white" />
                     </div>
 
                     <div>
                         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">{t('street_address')}</label>
-                        <input type="text" name="street" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors" />
+                        <input type="text" name="street" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors text-black bg-white" />
                     </div>
 
                     <div className="flex gap-4">
                         <div className="flex-1">
                             <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">{t('city')}</label>
-                            <input type="text" name="city" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors" />
+                            <input type="text" name="city" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors text-black bg-white" />
                         </div>
                         <div className="w-1/3">
                             <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">{t('zip')}</label>
-                            <input type="text" name="zip" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors" />
+                            <input type="text" name="zip" required className="w-full rounded border-gray-300 shadow-sm focus:border-[#D40511] focus:ring-[#D40511] p-3 border transition-colors text-black bg-white" />
                         </div>
                     </div>
 
