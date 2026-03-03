@@ -34,13 +34,22 @@ export function AddClientForm() {
                 />
             </div>
             <div className="flex-1">
+                <label className="block text-xs font-black text-gray-700 uppercase tracking-wider mb-2">Full Name</label>
+                <input
+                    type="text"
+                    name="fullName"
+                    placeholder="e.g. John Doe"
+                    className="block w-full rounded border-gray-300 shadow-sm focus:border-dhl-red focus:ring-dhl-red sm:text-sm border p-2.5 transition-colors"
+                />
+            </div>
+            <div className="flex-1">
                 <label className="block text-xs font-black text-gray-700 uppercase tracking-wider mb-2">Tracking Number</label>
                 <input
                     type="text"
                     name="trackingNumber"
                     required
                     pattern="[A-Z0-9]+"
-                    placeholder="e.g. DHL123456789"
+                    placeholder="e.g. DHL12345"
                     className="block w-full rounded border-gray-300 shadow-sm focus:border-dhl-red focus:ring-dhl-red sm:text-sm border p-2.5 transition-colors font-mono"
                 />
             </div>

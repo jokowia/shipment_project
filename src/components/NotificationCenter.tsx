@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { createClient } from '@/utils/supabase/client'
+import { fetchNotifications } from '@/app/admin/notifications_actions'
 import { Bell, X, CheckCircle, AlertCircle, CreditCard, KeyRound } from 'lucide-react'
 
 type Notification = {
@@ -20,6 +21,19 @@ export function NotificationCenter() {
     const [toast, setToast] = useState<Notification | null>(null)
 
     useEffect(() => {
+        const loadInitial = async () => {
+            try {
+                const result = await fetchNotifications()
+                if (result.success && result.notifications) {
+                    setNotifications(result.notifications as unknown as Notification[])
+                }
+            } catch (e) {
+                console.error("Error loading notifications:", e)
+            }
+        }
+
+        loadInitial()
+
         const channel = supabase
             .channel('admin-notifications')
             .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'clients' }, (payload) => {
