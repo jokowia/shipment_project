@@ -48,7 +48,7 @@ export async function sendClientEmail({ to, subject, html }: SendEmailParams) {
             .trim();
 
         const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://myshipment.delivery';
-        const logoUrl = `${appUrl}/dhllogonobg.svg`;
+        const logoUrl = `${appUrl}/dhllogo.png`;
 
         const info = await transporter.sendMail({
             from: fromAddress,
@@ -61,6 +61,8 @@ export async function sendClientEmail({ to, subject, html }: SendEmailParams) {
                 'X-Entity-Ref-ID': crypto.randomUUID(),
                 'List-Unsubscribe': `<mailto:${fromAddress.replace(/.*<(.+)>.*/, '$1')}?subject=unsubscribe>`,
                 'X-Image-URL': logoUrl,
+                'X-Logo-URL': logoUrl,
+                'X-Avatar-URL': logoUrl,
             }
         });
 

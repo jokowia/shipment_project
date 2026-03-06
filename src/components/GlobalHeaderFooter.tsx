@@ -1,21 +1,24 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export function GlobalHeader() {
     const pathname = usePathname()
+    const searchParams = useSearchParams()
 
     // Admin and Funnel have their own specialized headers
     if (!pathname) return null
 
+    const hasToken = searchParams?.get('token')
     const isSpecializedPage =
         pathname.startsWith('/admin') ||
         pathname.startsWith('/funnel') ||
         pathname.startsWith('/login') ||
         pathname.includes('/funnel/') ||
-        pathname.includes('/admin/')
+        pathname.includes('/admin/') ||
+        (pathname === '/track' && !!hasToken)
 
     if (isSpecializedPage) {
         return null
@@ -40,16 +43,19 @@ export function GlobalHeader() {
 
 export function GlobalFooter() {
     const pathname = usePathname()
+    const searchParams = useSearchParams()
 
     // Hide global elements on the admin portal, login, and funnel routes
     if (!pathname) return null
 
+    const hasToken = searchParams?.get('token')
     const isSpecializedPage =
         pathname.startsWith('/admin') ||
         pathname.startsWith('/funnel') ||
         pathname.startsWith('/login') ||
         pathname.includes('/funnel/') ||
-        pathname.includes('/admin/')
+        pathname.includes('/admin/') ||
+        (pathname === '/track' && !!hasToken)
 
     if (isSpecializedPage) {
         return null
