@@ -18,11 +18,12 @@ export async function middleware(request: NextRequest) {
     // 1. Client Funnel Enforcement
     // All client entries happen via /track?token=... 
     // We rewrite them to hidden routes based on their State Machine status.
-    if (request.nextUrl.pathname.startsWith('/track')) {
+    if (request.nextUrl.pathname === '/track') {
         const urlToken = request.nextUrl.searchParams.get('token')
 
         if (!urlToken) {
-            return NextResponse.redirect(new URL('/unauthorized', request.url))
+            // Allow manual tracking page access
+            return NextResponse.next()
         }
 
         // Hash token to compare using Web Crypto API for Edge Runtime

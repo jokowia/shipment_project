@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DHL Express | Tracking & Logistics",
   description: "Secure and fast global shipping.",
+  icons: {
+    icon: "/dhllogonobg.svg",
+  },
 };
 
 export default function RootLayout({

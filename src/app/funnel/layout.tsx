@@ -20,7 +20,7 @@ export default async function FunnelLayout({ children }: { children: ReactNode }
                     </div>
                     {/* Optional Right Side (E.g. Help / Language) */}
                     <div className="hidden sm:flex items-center text-sm font-semibold text-gray-900 gap-6">
-                        <Link href="/tracking" className="hover:text-[#d40511] transition-colors">{t('track')}</Link>
+                        <Link href="/track" className="hover:text-[#d40511] transition-colors">{t('track')}</Link>
                         <span className="hover:text-[#d40511] cursor-pointer transition-colors">{t('help')}</span>
                         <div className="h-4 w-px bg-gray-900/20 mx-1"></div>
                         <LanguageSwitcher currentLang={lang} />

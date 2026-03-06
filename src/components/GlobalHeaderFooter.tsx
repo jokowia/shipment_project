@@ -8,7 +8,7 @@ export function GlobalHeader() {
     const pathname = usePathname()
 
     // Admin and Funnel have their own specialized headers
-    if (pathname.startsWith('/admin') || pathname.startsWith('/funnel') || pathname === '/track') {
+    if (pathname.startsWith('/admin') || pathname.startsWith('/funnel')) {
         return null
     }
 
@@ -25,7 +25,7 @@ export function GlobalHeader() {
                 </Link>
                 <nav className="flex gap-4 md:gap-6 font-semibold items-center text-sm md:text-base">
                     <Link href="/" className="hover:text-[#D40511] transition hidden sm:block">Home</Link>
-                    <Link href="/tracking" className="hover:text-[#D40511] transition">Track</Link>
+                    <Link href="/track" className="hover:text-[#D40511] transition">Track</Link>
                     <Link href="/contact" className="hover:text-[#D40511] transition hidden sm:block">Contact</Link>
                     <Link href="/login" className="bg-[#D40511] text-white px-4 py-2 rounded hover:bg-red-800 transition shadow-sm border border-red-900">Admin Portal</Link>
                 </nav>
@@ -38,7 +38,7 @@ export function GlobalFooter() {
     const pathname = usePathname()
 
     // Hide global elements on the admin portal, login, and funnel routes
-    if (pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/funnel') || pathname === '/track') {
+    if (pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/funnel')) {
         return null
     }
 

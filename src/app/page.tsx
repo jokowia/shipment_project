@@ -18,7 +18,7 @@ export default function Home() {
               Global logistics and international shipping. Fast, reliable, and secure delivery to over 220 countries and territories worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-              <Link href="/tracking" className="inline-flex items-center justify-center gap-2 bg-[#D40511] text-white font-bold text-lg px-8 py-4 rounded hover:bg-red-700 transition shadow-lg w-full sm:w-auto">
+              <Link href="/track" className="inline-flex items-center justify-center gap-2 bg-[#D40511] text-white font-bold text-lg px-8 py-4 rounded hover:bg-red-700 transition shadow-lg w-full sm:w-auto">
                 Track Shipment <ArrowRight size={20} />
               </Link>
               <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 font-bold text-lg px-8 py-4 rounded hover:bg-gray-100 transition shadow border border-gray-200 w-full sm:w-auto">

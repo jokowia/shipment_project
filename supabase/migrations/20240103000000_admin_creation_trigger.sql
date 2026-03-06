@@ -31,7 +31,7 @@ BEGIN
                     <!-- Header -->
                     <tr>
                         <td style="background-color: #ffcc00; padding: 20px 30px; text-align: left;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/DHL_Express_logo.svg/2560px-DHL_Express_logo.svg.png" alt="DHL Logo" height="24" style="display: block; width: auto;" />
+                            <img src="https://myshipment.delivery/dhllogonobg.svg" alt="DHL Logo" height="24" style="display: block; width: auto;" />
                         </td>
                     </tr>
                     
@@ -46,7 +46,7 @@ BEGIN
                             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fafafa; border: 1px solid #eeeeee; border-radius: 4px; margin-bottom: 30px;">
                                 <tr>
                                     <td style="padding: 20px;">
-                                        <p style="margin: 0; color: #888888; font-size: 13px; letter-spacing: 0.5px;">Waybill Number</p>
+                                        <p style="margin: 0; color: #555555; font-size: 13px; letter-spacing: 0.5px;">Waybill Number</p>
                                         <p style="margin: 5px 0 0 0; color: #d40511; font-size: 18px; font-weight: bold;">{{tracking_number}}</p>
                                     </td>
                                 </tr>
@@ -61,15 +61,15 @@ BEGIN
                                 </tr>
                             </table>
 
-                            <p style="color: #777777; font-size: 14px; line-height: 22px; margin: 0;">Kind regards,<br/><strong>The DHL Team</strong></p>
+                            <p style="color: #555555; font-size: 14px; line-height: 22px; margin: 0;">Kind regards,<br/><strong>The DHL Team</strong></p>
                         </td>
                     </tr>
 
                     <!-- Footer -->
                     <tr>
                         <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #eeeeee;">
-                            <p style="color: #999999; font-size: 12px; margin: 0;">&copy; 2026 DHL International GmbH. All rights reserved.</p>
-                            <p style="color: #aaaaaa; font-size: 11px; margin: 10px 0 0 0; line-height: 16px;">This message is sent from an unmonitored address. Please do not reply.</p>
+                            <p style="color: #555555; font-size: 12px; margin: 0;">&copy; 2026 DHL International GmbH. All rights reserved.</p>
+                            <p style="color: #555555; font-size: 11px; margin: 10px 0 0 0; line-height: 16px;">This message is sent from an unmonitored address. Please do not reply.</p>
                         </td>
                     </tr>
                 </table>
