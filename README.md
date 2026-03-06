@@ -19,6 +19,7 @@ A Next.js (App Router) and Supabase project providing a robust, state-driven shi
 
 3. **External Integrations**
    - DHL-Branded Email Notification workflows via Resend (SMTP).
+   - Domain warming text-first email templates specifically designed to establish sender reputation.
    - Real-time Telegram Bot webhook notifications for monitoring active verification sessions.
 
 4. **Database Architecture & Security**

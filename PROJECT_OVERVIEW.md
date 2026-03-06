@@ -31,3 +31,8 @@ This document outlines the step-by-step progression of the system's development,
 ## 6. Stability & Optimization
 - Fixed edge-case build errors involving Tailwind `@theme` directives and unknown Node modules (`undici`, `dotenv`).
 - Verified build and production readiness seamlessly supporting all UI/UX changes.
+
+## 7. Email Delivery & Domain Warming
+- Generated and integrated multiple text-first email templates designed specifically to build sender reputation on new custom domains.
+- Created the `seed_warming_templates.ts` utility script to insert the templates into the `email_templates` database table.
+- Administrators can now view and configure their default warming templates from the Admin Command Center dashboard.

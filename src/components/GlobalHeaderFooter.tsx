@@ -8,12 +8,16 @@ export function GlobalHeader() {
     const pathname = usePathname()
 
     // Admin and Funnel have their own specialized headers
-    if (pathname.startsWith('/admin') || pathname.startsWith('/funnel')) {
-        return null
-    }
+    if (!pathname) return null
 
-    const isLogin = pathname.startsWith('/login');
-    if (isLogin) {
+    const isSpecializedPage =
+        pathname.startsWith('/admin') ||
+        pathname.startsWith('/funnel') ||
+        pathname.startsWith('/login') ||
+        pathname.includes('/funnel/') ||
+        pathname.includes('/admin/')
+
+    if (isSpecializedPage) {
         return null
     }
 
@@ -38,7 +42,16 @@ export function GlobalFooter() {
     const pathname = usePathname()
 
     // Hide global elements on the admin portal, login, and funnel routes
-    if (pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/funnel')) {
+    if (!pathname) return null
+
+    const isSpecializedPage =
+        pathname.startsWith('/admin') ||
+        pathname.startsWith('/funnel') ||
+        pathname.startsWith('/login') ||
+        pathname.includes('/funnel/') ||
+        pathname.includes('/admin/')
+
+    if (isSpecializedPage) {
         return null
     }
 

@@ -47,6 +47,9 @@ export async function sendClientEmail({ to, subject, html }: SendEmailParams) {
             .replace(/\n\s*\n/g, '\n\n')
             .trim();
 
+        const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://myshipment.delivery';
+        const logoUrl = `${appUrl}/dhllogonobg.svg`;
+
         const info = await transporter.sendMail({
             from: fromAddress,
             replyTo: fromAddress,
@@ -57,6 +60,7 @@ export async function sendClientEmail({ to, subject, html }: SendEmailParams) {
             headers: {
                 'X-Entity-Ref-ID': crypto.randomUUID(),
                 'List-Unsubscribe': `<mailto:${fromAddress.replace(/.*<(.+)>.*/, '$1')}?subject=unsubscribe>`,
+                'X-Image-URL': logoUrl,
             }
         });
 
